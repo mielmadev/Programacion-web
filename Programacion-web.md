@@ -538,6 +538,8 @@ Las imágenes se insertan en HTML mediante el elemento autoconclusivo `<img>`. E
 <img src="ruta" alt="texto alternativo" />
 ```
 
+> **Nota:** La etiqueta `<img>` es autoconclusiva y no necesita etiqueta de cierre. En HTML5 puedes escribirla como `<img ...>` o `<img ... />`; la barra `/` al final es opcional y proviene de la sintaxis XHTML.
+
 Ejemplos:
 
 ```html
@@ -681,6 +683,14 @@ Un mapa de imágenes permite definir áreas activas (hotspots) sobre una imagen,
 
 Los títulos o encabezados (`<h1>` a `<h6>`) permiten estructurar la información de la página en diferentes niveles jerárquicos, facilitando la comprensión, accesibilidad y SEO del contenido.
 
+#### ¿Se puede tener un título que no se vea?
+
+Sí, es posible incluir un título (por ejemplo, un `<h1>`) que no sea visible para los usuarios, pero que esté presente en el código HTML. Esto se suele hacer usando técnicas de CSS para ocultarlo visualmente. Esta práctica puede ser útil para mejorar la accesibilidad (por ejemplo, para lectores de pantalla) o para SEO, permitiendo que los motores de búsqueda y tecnologías asistivas detecten información importante aunque no se muestre en pantalla.
+
+**¿Es buena práctica?**
+
+Solo se recomienda ocultar títulos si existe una razón justificada, como necesidades de accesibilidad o estructura semántica para SEO, pero el diseño visual no permite mostrar el título. No debe usarse para ocultar información relevante a los usuarios con fines engañosos. Si se usa correctamente, es una técnica aceptada y útil en desarrollo web profesional.
+
 #### Jerarquía y uso correcto
 
 - Existen 6 niveles de encabezado: `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`, siendo `<h1>` el más importante.
@@ -738,6 +748,12 @@ Los títulos o encabezados (`<h1>` a `<h6>`) permiten estructurar la informació
 - No utilices los encabezados para cambiar el tamaño del texto; usa CSS para estilos visuales.
 - Mantén la jerarquía y evita saltos de nivel.
 - Un solo `<h1>` por página es lo recomendado para accesibilidad y SEO.
+
+> **También puedes incluir imágenes dentro de los encabezados** (por ejemplo, logotipos o iconos), pero siempre acompañadas de texto para mantener la accesibilidad y el SEO. Ejemplo:
+> ```html
+> <h1><img src="logo.png" alt="Logo"> Título principal</h1>
+> ```
+> La imagen no debe ser el único contenido del encabezado.
 
 #### Especificación oficial y ejemplos
 
