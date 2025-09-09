@@ -143,8 +143,6 @@ CodePen es una plataforma online que permite crear, compartir y colaborar en pro
 
 ## HTML
 
-
-
 ### Introducción a HTML
 
 **HTML** (HyperText Markup Language) es el lenguaje de marcado estándar para la creación de páginas web. Permite estructurar el contenido mediante el uso de etiquetas, definiendo la jerarquía y el significado de cada elemento en la página.
@@ -589,27 +587,163 @@ Puedes usar una imagen como enlace envolviéndola en un elemento `<a>`:
 </a>
 ```
 
-
 #### Formatos de imagen recomendados
 
-- PNG, JPG (JPEG), GIF, SVG, WEBP.
+- **PNG**: Formato sin pérdida, ideal para imágenes con transparencias y gráficos con pocos colores (iconos, logotipos, ilustraciones).
+- **JPG (JPEG)**: Compresión con pérdida, adecuado para fotografías y gráficos con muchos colores. No soporta transparencias.
+- **GIF**: Soporta animaciones y transparencias simples (un solo color transparente). Útil para imágenes animadas de baja resolución.
+- **SVG**: Formato vectorial, escalable sin pérdida de calidad. Perfecto para iconos, logotipos y gráficos que deben adaptarse a cualquier tamaño.
+- **WEBP**: Formato moderno con alta compresión y buena calidad, soporta transparencias y animaciones. Recomendado para optimizar el peso de imágenes en la web.
+- **AVIF**: Formato de última generación, ofrece mayor compresión y calidad que WEBP y JPG. Soporta transparencias y animaciones. Ideal para máxima optimización.
 
-Elige el formato según el tipo de imagen, transparencia, calidad y peso.
+Elige el formato según el tipo de imagen, necesidad de transparencia, calidad y peso.
+
+
 
 #### Bancos de imágenes y recursos de iconos
 
-- [Lorem Picsum (imágenes aleatorias)](https://picsum.photos/)
-- [Unsplash (fotos de alta calidad)](http://unsplash.com/)
-- [Pexels (fotos gratuitas)](https://www.pexels.com/)
-- [Iconfinder (iconos)](https://www.iconfinder.com/)
+- **[Lorem Picsum](https://picsum.photos/):** Servicio gratuito para obtener imágenes aleatorias de prueba, ideal para prototipos y maquetación. Permite especificar el tamaño y otras opciones en la URL.
+	- Ejemplo de uso:
+		```html
+		<img src="https://picsum.photos/300/200" alt="Imagen aleatoria de Lorem Picsum">
+		```
+- **[Unsplash](http://unsplash.com/):** Banco de imágenes de alta calidad y libres de derechos para uso personal y comercial. Permite buscar y descargar fotografías profesionales en diferentes resoluciones.
+	- Ejemplo de uso (descarga manual):
+		1. Busca una imagen en Unsplash y descargarla.
+		2. Sube la imagen a tu proyecto y usa:
+		```html
+		<img src="ruta/a/mi-imagen.jpg" alt="Descripción de la imagen de Unsplash">
+		```
+- **[Pexels](https://www.pexels.com/):** Plataforma de fotografías y videos gratuitos para uso personal y comercial. Permite buscar, descargar y utilizar imágenes de alta calidad sin necesidad de atribución (aunque se recomienda).
+	- Ejemplo de uso (descarga manual):
+		1. Busca una imagen en Pexels y descargarla.
+		2. Sube la imagen a tu proyecto y usa:
+		```html
+		<img src="ruta/a/mi-imagen.jpg" alt="Descripción de la imagen de Pexels">
+		```
+- **[Iconfinder](https://www.iconfinder.com/):** Plataforma para buscar, descargar y comprar iconos en diferentes formatos (SVG, PNG, etc.), tanto gratuitos como de pago. Permite filtrar por licencia y estilo, ideal para proyectos web y aplicaciones.
+	- Ejemplo de uso (descarga manual):
+		1. Busca un icono en Iconfinder y descárgalo en el formato deseado (por ejemplo, SVG).
+		2. Sube el icono a tu proyecto y usa:
+		```html
+		<img src="ruta/a/mi-icono.svg" alt="Descripción del icono">
+		```
+
+- **[Font Awesome](https://fontawesome.com/):** Biblioteca de iconos vectoriales y sociales ampliamente utilizada en desarrollo web. Permite integrar iconos mediante CDN, descarga o npm, y usarlos como fuentes o SVG en HTML y CSS.
+	- Ejemplo de uso (CDN):
+		1. Añade el siguiente enlace en la sección `<head>` de tu HTML:
+		```html
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		```
+		2. Usa un icono en tu HTML:
+		```html
+		<i class="fa-solid fa-camera"></i>
+		```
+
 
 #### Mapas de imágenes
 
-Un mapa de imágenes define áreas activas (hotspots) sobre una imagen que actúan como enlaces. Actualmente su uso es poco frecuente y, si se utilizan, deben ser accesibles y adaptables (responsive).
+Un mapa de imágenes permite definir áreas activas (hotspots) sobre una imagen, que actúan como enlaces a diferentes recursos. Aunque su uso es poco frecuente hoy en día, pueden ser útiles en casos específicos. Si se utilizan, deben ser accesibles y, preferentemente, adaptables (responsive).
 
-> **Recomendación:** Prioriza siempre la accesibilidad y la optimización de imágenes para mejorar la experiencia de usuario y el rendimiento del sitio web.
+##### Ejemplo básico de mapa de imagen (no responsive)
 
-### Títulos
+```html
+<img src="https://assets.codepen.io/513929/logos-mapa-imagen.jpg" usemap="#image-map" alt="Mapa de logos">
+
+<map name="image-map">
+	<area alt="HTML" title="HTML" href="https://es.wikipedia.org/wiki/HTML" coords="2,2,117,149" shape="rect">
+	<area alt="CSS" title="CSS" href="https://es.wikipedia.org/wiki/CSS" coords="185,62,57" shape="circle">
+	<area alt="Javascript" title="Javascript" href="https://es.wikipedia.org/wiki/JavaScript" coords="117,166,152,187,194,222,195,222,183,261,177,315,136,331,108,328,67,310,52,206,92,191,103,177" shape="poly">
+</map>
+```
+
+**Explicación de atributos y formas:**
+
+- `usemap="#image-map"`: Asocia la imagen con el mapa de áreas definido por `<map name="image-map">`.
+- `<area shape="rect" coords="x1,y1,x2,y2">`: Área rectangular, define dos esquinas opuestas.
+- `<area shape="circle" coords="x,y,r">`: Área circular, define el centro y el radio.
+- `<area shape="poly" coords="x1,y1,x2,y2,...">`: Área poligonal, define múltiples vértices.
+- `alt`: Texto alternativo para accesibilidad.
+- `title`: Texto emergente al pasar el ratón (opcional).
+- `href`: URL de destino.
+
+> **Nota:** Las coordenadas se expresan en píxeles relativos a la imagen original. Cada área debe tener un texto alternativo (`alt`) descriptivo.
+
+##### Recursos y generadores
+
+- [HTML - Ejemplo Mapa de Imagen en CodePen](https://codepen.io/antxoa/pen/jORqjEw)
+- [Generador de mapas de imagen (no RWD)](http://www.image-map.net/)
+- [Generador de mapas de imagen responsive (SVG)](https://imagemapper.pageballoon.com/)
+
+> **Recomendación:** Prioriza siempre la accesibilidad y la optimización de imágenes para mejorar la experiencia de usuario y el rendimiento del sitio web. Considera usar SVG para mapas de imagen responsive.
+
+
+### Títulos (Encabezados) en HTML
+
+Los títulos o encabezados (`<h1>` a `<h6>`) permiten estructurar la información de la página en diferentes niveles jerárquicos, facilitando la comprensión, accesibilidad y SEO del contenido.
+
+#### Jerarquía y uso correcto
+
+- Existen 6 niveles de encabezado: `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`, siendo `<h1>` el más importante.
+- Cada encabezado debe tener su etiqueta de apertura y cierre.
+- Se recomienda utilizar un solo `<h1>` por página, representando el tema principal.
+- Los encabezados deben seguir un orden jerárquico: no uses un `<h2>` sin haber usado antes un `<h1>`, ni saltes niveles (por ejemplo, de `<h2>` a `<h4>` sin un `<h3>` intermedio).
+
+#### Ejemplo correcto
+
+```html
+<h1>Servicios</h1>
+<p>Empresa ACME le proporciona los siguientes servicios:</p>
+
+<h2>Catering</h2>
+<p>Por un módico precio, puede disfrutar de la mejor y más variada comida del mundo…</p>
+
+<h2>Preparación oposiciones</h2>
+<p>Nuestro personal estará encantado en ayudarle a preparar las siguientes oposiciones:</p>
+
+<h3>Ayudante de Chef</h3>
+<p>bla, bla, bla</p>
+
+<h3>Ayudante de cocina</h3>
+<p>bla, bla, bla</p>
+
+<h2>Formación privada</h2>
+<p>Si lo desea, podemos enseñarle a preparar usted mismo los exquisitos platos...</p>
+```
+
+#### Ejemplo incorrecto
+
+```html
+<h2>Servicios</h2>
+<p>Empresa ACME le proporciona los siguientes servicios:</p>
+
+<h1>Catering</h1>
+<p>Por un módico precio, puede disfrutar de la mejor y más variada comida del mundo…</p>
+
+<h2>Preparación oposiciones</h2>
+<p>Nuestro personal estará encantado en ayudarle a preparar las siguientes oposiciones:</p>
+
+<h3>Ayudante de Chef</h3>
+<p>bla, bla, bla</p>
+
+<h3>Ayudante de cocina</h3>
+<p>bla, bla, bla</p>
+
+<h4>Formación privada</h4>
+<p>Si lo desea, podemos enseñarle a preparar usted mismo los exquisitos platos...</p>
+```
+
+#### Buenas prácticas
+
+- Utiliza los encabezados para reflejar la estructura lógica del contenido, no solo para dar formato visual.
+- No utilices los encabezados para cambiar el tamaño del texto; usa CSS para estilos visuales.
+- Mantén la jerarquía y evita saltos de nivel.
+- Un solo `<h1>` por página es lo recomendado para accesibilidad y SEO.
+
+#### Especificación oficial y ejemplos
+
+- [Especificación oficial de encabezados HTML](https://html.spec.whatwg.org/multipage/sections.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements): Explica el propósito, uso y reglas de los elementos de encabezado.
+- [Ejemplos de estructura y jerarquía de títulos](https://html.spec.whatwg.org/multipage/sections.html#headings-and-outlines-2): Muestra cómo los encabezados definen la estructura y el esquema de la página.
 
 ### Listas
 
