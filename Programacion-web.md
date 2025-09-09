@@ -113,8 +113,7 @@ Otros navegadores como Edge, Safari, Opera, Vivaldi, Brave, etc., pueden ser út
 
 Para mejorar las prestaciones de los navegadores durante el desarrollo web, es recomendable instalar algunas extensiones específicas. Estas herramientas facilitan tareas de inspección, depuración y diseño.
 
-#### Extensiones recomendadas
-- **Web Developer**: Añade un conjunto de herramientas útiles para desarrolladores web ([Chrome Web Store](https://chrome.google.com/webstore/detail/web-developer/bfbameneiokkgbdmiekhjnmfkcnldhhm?hl=es)).
+- **Web Developer**: Extensión para navegadores que añade una barra de herramientas con utilidades para inspeccionar, depurar y modificar páginas web en tiempo real. Permite deshabilitar scripts, ver estructuras de HTML y CSS, validar código, analizar imágenes y mucho más. Es ideal para mejorar la productividad y la calidad del desarrollo front-end. [Chrome Web Store](https://chrome.google.com/webstore/detail/web-developer/bfbameneiokkgbdmiekhjnmfkcnldhhm?hl=es)
 - **ColorZilla**: Permite obtener colores de cualquier parte de la página y gestionar paletas de colores ([Chrome Web Store](https://chrome.google.com/webstore/detail/colorzilla/bhlhnicpbhignbdhedgjhgdocnmhomnp)).
 
 #### Herramientas propias de los navegadores
