@@ -197,24 +197,29 @@ Algunas etiquetas son autoconclusivas (no requieren cierre). Puedes escribirlas 
 <etiquetaautocierre />
 ```
 
+### Documentación oficial sobre encabezados y outlines en HTML
+
+#### Enlaces oficiales
+
+- [Elementos h1, h2, h3, h4, h5 y h6 (WHATWG HTML)](https://html.spec.whatwg.org/multipage/sections.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements)
+- [Encabezados y outlines (WHATWG HTML)](https://html.spec.whatwg.org/multipage/sections.html#headings-and-outlines-2)
+
+#### Recomendaciones
+
 **Recomendación:** Mantén coherencia en el estilo de autocierre que elijas para todo tu proyecto.
 
-**Incorrecto:** No inventes etiquetas de cierre para etiquetas autoconclusivas.
+#### Ejemplo incorrecto de autocierre
+
+No inventes etiquetas de cierre para etiquetas autoconclusivas.
 
 ```html
 <!-- Esto es incorrecto -->
 <etiquetaautocierre>
-</etiquetaautocierre>
-```
-
 #### Semántica y variedad de etiquetas
 
 HTML ofrece muchas etiquetas para describir el significado del contenido. Utiliza la etiqueta adecuada para cada tipo de información. La presentación visual se gestiona con CSS, no con HTML.
 
 #### Comentarios en HTML
-
-Para documentar o desactivar partes del código, utiliza comentarios:
-
 ```html
 <!-- Esto es un comentario -->
 ```
@@ -760,7 +765,257 @@ Solo se recomienda ocultar títulos si existe una razón justificada, como neces
 - [Especificación oficial de encabezados HTML](https://html.spec.whatwg.org/multipage/sections.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements): Explica el propósito, uso y reglas de los elementos de encabezado.
 - [Ejemplos de estructura y jerarquía de títulos](https://html.spec.whatwg.org/multipage/sections.html#headings-and-outlines-2): Muestra cómo los encabezados definen la estructura y el esquema de la página.
 
-### Listas
+### listas
+
+- **Listas desordenadas** (`<ul>`): Elementos sin orden específico, con viñetas.
+- **Listas ordenadas** (`<ol>`): Elementos con orden, numerados automáticamente.
+- **Listas de definición** (`<dl>`): Pares de término y definición.
+
+### 1. Etiquetas principales y ejemplos
+
+- `<ul>` (**Unordered List**): Contenedor de lista desordenada.
+		```html
+		<ul>
+			<li>Elemento 1</li>
+			<li>Elemento 2</li>
+		</ul>
+		```
+- `<ol>` (**Ordered List**): Contenedor de lista ordenada.
+		```html
+		<ol>
+			<li>Paso 1</li>
+			<li>Paso 2</li>
+		</ol>
+		```
+- `<li>` (**List Item**): Elemento de lista, hijo de `<ul>` o `<ol>`. Puedes tener tantos como necesites.
+		```html
+		<ul>
+			<li>Elemento A</li>
+			<li>Elemento B</li>
+		</ul>
+		```
+- `<dl>` (**Description List**): Contenedor de lista de definiciones.
+		```html
+		<dl>
+			<dt>Término</dt>
+			<dd>Definición</dd>
+		</dl>
+		```
+- `<dt>` (**Definition Term**): Término a definir en `<dl>`.
+		```html
+		<dl>
+			<dt>HTML</dt>
+			<dd>Lenguaje de marcado</dd>
+		</dl>
+		```
+- `<dd>` (**Definition Description**): Definición del término anterior en `<dl>`.
+		```html
+		<dl>
+			<dt>CSS</dt>
+			<dd>Lenguaje de estilos</dd>
+		</dl>
+		```
+
+### 2. Contenido permitido en `<li>`
+
+Dentro de `<li>` puedes incluir texto, enlaces, imágenes, listas anidadas y cualquier otro elemento HTML válido.
+
+```html
+<ul>
+	<li>Texto simple</li>
+	<li><a href="#">Enlace</a></li>
+	<li><img src="logo.png" alt="Logo"></li>
+	<li>
+		<a href="#"><img src="icono.png" alt="Icono"> Enlace con imagen</a>
+	</li>
+	<li>Con <strong>formato</strong> y <a href="#">enlace contextual</a></li>
+</ul>
+```
+
+### 3. Listas anidadas
+
+Puedes anidar listas para crear jerarquías. **Una lista (`<ul>` o `<ol>`) solo puede estar dentro de un `<li>`, nunca directamente dentro de `<ul>` o `<ol>`.** Puedes anidar tantas sublistas como desees, pero se recomienda no abusar para mantener la legibilidad y accesibilidad.
+
+Ejemplo correcto:
+```html
+<ul>
+	<li>
+		Trilogía de El señor de los anillos
+		<ol>
+			<li>La comunidad del anillo</li>
+			<li>Las dos torres</li>
+			<li>El retorno del rey</li>
+		</ol>
+	</li>
+	<li>El Silmarillión</li>
+	<li>El Hobbit</li>
+</ul>
+```
+Ejemplo incorrecto:
+```html
+<ul>
+	<li>Trilogía de El señor de los anillos</li>
+<ol>
+	<li>La comunidad del anillo</li>
+	<li>Las dos torres</li>
+	<li>El retorno del rey</li>
+</ol>
+	<li>El Silmarillión</li>
+	<li>El Hobbit</li>
+</ul>
+```
+
+### 4. Listas de definición avanzadas
+
+Las listas de definición (`<dl>`) pueden tener varios `<dd>` para un mismo `<dt>`.
+
+```html
+<dl>
+	<dt>Plataformas</dt>
+	<dd>Linux</dd>
+	<dd>Mac</dd>
+	<dd>Windows</dd>
+</dl>
+```
+
+
+### 5. Personalización visual
+
+Si se desea, es posible cambiar el tipo de viñeta o numeración de las listas mediante CSS. No es necesario saber CSS en este momento, solo conocer que existe esa posibilidad.
+
+### 6. Sangría y espaciado
+
+Los navegadores aplican sangría por defecto. Puedes modificarla con CSS:
+```css
+ul, ol { margin-left: 2em; padding-left: 40px; }
+ul, ol { margin-left: 0; padding-left: 0; } /* Para eliminar sangría */
+```
+Recomendación: Ajusta solo si el diseño lo requiere, pero mantén la semántica.
+
+### 7. Mejores prácticas
+
+- Usa el tipo de lista adecuado según el contenido.
+- Las sublistas siempre dentro de `<li>`.
+- Personaliza solo con CSS, no cambies la semántica.
+- No uses listas solo para sangrar texto o maquetar.
+- Mantén la accesibilidad y la estructura clara.
+
+### 8. Documentación oficial
+
+- [Listas en HTML Living Standard (WHATWG)](https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element)
+- [MDN Web Docs: Listas HTML](https://developer.mozilla.org/es/docs/Web/HTML/Element/ul)
+
+### Ejemplo de lista desordenada
+
+```html
+<h2>Ingredientes</h2>
+<ul>
+	<li>8 tomates rojos</li>
+	<li>2 pepinos pequeños</li>
+	<li>1 rebanada de pan</li>
+	<li>2 dientes de ajo</li>
+	<li>2 pimientos</li>
+	<li>cuarto litro de aceite</li>
+	<li>vinagre</li>
+	<li>sal</li>
+	<li>agua</li>
+</ul>
+```
+
+### Ejemplo de lista ordenada
+
+```html
+<h2>Preparación</h2>
+<ol>
+	<li>Triturar en la batidora los pimientos y los tomates partidos por la mitad, los pepinos pelados, los ajos, el pan, y el aceite, con un chorrito de vinagre, un poco de agua y sal.</li>
+	<li>Batir muy bien</li>
+	<li>Verter todo en la fuente en la que vaya a ser servido y agregar agua hasta que adquiera la consistencia de una crema ligera.</li>
+	<li>Servir muy frío.</li>
+</ol>
+```
+
+
+### Listas anidadas
+
+Las listas pueden anidarse para crear jerarquías. **Una lista (`<ul>` o `<ol>`) solo puede estar dentro de un elemento `<li>`, nunca directamente dentro de `<ul>` o `<ol>`.** Esto asegura la estructura semántica y la validez del HTML.
+
+Puedes anidar tantas sublistas como desees, creando varios niveles de profundidad, siempre que cada sublista esté dentro de un `<li>`. No hay un límite técnico, pero se recomienda no abusar para mantener la legibilidad y accesibilidad del contenido.
+
+```html
+<ul>
+	<li>
+		Trilogía de El señor de los anillos
+		<ol>
+			<li>La comunidad del anillo</li>
+			<li>Las dos torres</li>
+			<li>El retorno del rey</li>
+		</ol>
+	</li>
+	<li>El Silmarillión</li>
+	<li>El Hobbit</li>
+</ul>
+```
+
+**Incorrecto:**
+
+```html
+<ul>
+	<li>Trilogía de El señor de los anillos</li>
+<ol>
+	<li>La comunidad del anillo</li>
+	<li>Las dos torres</li>
+	<li>El retorno del rey</li>
+</ol>
+	<li>El Silmarillión</li>
+	<li>El Hobbit</li>
+</ul>
+```
+
+### Listas de definición
+
+Las listas de definición (`<dl>`) agrupan términos (`<dt>`) y sus definiciones (`<dd>`). Un término puede tener varias definiciones.
+
+```html
+<h2>Ficha técnica</h2>
+<dl>
+	<dt>Nombre:</dt>
+	<dd>Open open</dd>
+	<dt>Versión:</dt>
+	<dd>2.0</dd>
+	<dt>Plataformas:</dt>
+	<dd>Linux</dd>
+	<dd>Mac</dd>
+	<dd>Windows</dd>
+</dl>
+```
+
+### Mejores prácticas
+
+- Utiliza el tipo de lista adecuado según el contenido (ordenada, desordenada o de definición).
+- Las sublistas deben estar siempre dentro de un `<li>`.
+- Usa CSS para personalizar la apariencia, nunca cambies la semántica de la lista solo por motivos visuales.
+- No utilices listas solo para sangrar texto o maquetar, deben tener sentido semántico.
+
+
+### Sangría de las listas
+
+### Personalización de viñetas y numeración con CSS
+
+Puedes cambiar el tipo de viñeta de las listas desordenadas (`<ul>`) y el tipo de numeración de las listas ordenadas (`<ol>`) usando la propiedad CSS `list-style-type`.
+
+Consulta la documentación de CSS para más opciones: [MDN list-style-type](https://developer.mozilla.org/es/docs/Web/CSS/list-style-type)
+
+Por defecto, los navegadores aplican una sangría (indentación) a las listas (`<ul>`, `<ol>`, `<dl>`) para diferenciarlas del resto del contenido. Esta sangría puede variar según el navegador y el sistema operativo.
+
+**Controlar la sangría con CSS:**
+
+Puedes modificar o eliminar la sangría de las listas usando las propiedades CSS `margin` y `padding`. Por 
+**Recomendación:** Ajusta la sangría solo si el diseño lo requiere, pero mantén la estructura semántica de la lista. No uses listas únicamente para crear sangrías visuales; utiliza listas solo cuando el contenido lo justifique.
+
+### Documentación oficial
+
+- [Listas en HTML Living Standard (WHATWG)](https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element)
+- [MDN Web Docs: Listas HTML](https://developer.mozilla.org/es/docs/Web/HTML/Element/ul)
 
 ### Tablas
 
