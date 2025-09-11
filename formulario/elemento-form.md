@@ -80,7 +80,7 @@ Con el atributo `action` indicamos dónde vamos a enviar el formulario. Tenemos 
     <!-- campos del formulario -->
 </form>
 
-<form action="envio.html" method="post" enctype="multipart/form-data">
+<form action="enviar.html" method="post" enctype="multipart/form-data">
     <!-- campos del formulario con envío de archivo -->
 </form>
 ```
@@ -100,7 +100,7 @@ Tenemos 2 atributos más que, aunque no son obligatorios, sí que son altamente 
 > Generalmente vamos a utilizar el mismo valor para estos 2 atributos (a excepción de un campo de formulario específico que no puede hacerse de esta manera), para no tener que pensar en dos valores diferentes. Podemos tratar estos dos atributos como si `id` fuera nuestro DNI y `name` fuera nuestro Pasaporte.
 
 ```html
-<form name="formcont" id="formcont" action="index.html" method="get" enctype="text/plain">
+<form name="form-cont" id="form-cont" action="index.html" method="get" enctype="text/plain">
     <!-- campos del formulario -->
 </form>
 ```
@@ -217,17 +217,17 @@ Para terminar, podemos dar estructura a cada elemento del formulario, insertánd
 
 etiqueta para formulario es `form` 
 
-en la url de un sitio donde has rellenado y eniado un formulario lo que aparecen son los datos, manda la info de lo que estas escribiendo mediante la url,, otras veces dse puede mandar de manera invisible, que ees lo general
+en la url de un sitio donde has rellenado y enviado un formulario lo que aparecen son los datos, manda la info de lo que estas escribiendo mediante la url,, otras veces dse puede mandar de manera invisible, que es lo general
 
 atributos y valores:
-`method` -> metodo de envio post y get(hace que veas los parametros en la url).
+`method` -> método de envío post y get(hace que veas los parámetros en la url).
 buena practica hacerlo con post.
 
-`action`-> si no lo rrelenas se te autoenvia. si no haces programacionen blanco, sino a donde queiras mandarlo.
+`action`-> si no lo rellenas se te auto-envía. si no haces programación en blanco, sino a donde quieras mandarlo. es la dirección donde va a ir el mensaje
 
-`enctype` -> tipo codificacin de datos. si no hay archivos  porque es solo texto plano `text/plain`, si hay un archivo el atributo `multipart/form-data`. puedesa cambiar entre estos valores dependiendo de lo que necesites. 
+`enctype` -> tipo codificación de datos. si no hay archivos  porque es solo texto plano `text/plain`, si hay un archivo el atributo `multipart/form-data`. puedes cambiar entre estos valores dependiendo de lo que necesites. 
 
-atributo `id`
+atributo `id` -> es como un dni,, irrepetible en una misma página
+
 atributo `name` para saber el nombre de los cambios. name obligatorio para que java, php.... reconozca
 
-inserción de campos: 

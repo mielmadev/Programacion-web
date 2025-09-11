@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Formulario</title>
@@ -7,16 +8,163 @@
 
 <body>
 
-<!--
+	<!--
 Crear el formulario que se ve en la imagen
 
 enviar el formulario sobre sí mismo y utilizar el método GET para comprobar que se están enviando todos los datos correctamente.
 
 -->
+	<h1>Formulario</h1>
+	<form name="grupos-metal" id="grupos-metal" method="get o post(normalmente)" action="" enctype="text/plain">
+
+		<h2>Texto</h2>
+		<!-- posicionamiento label abrir y cerrar, luego input -->
+		<label for="nombre-grupo">Grupo:</label>
+		<input type="text" name="nombre-grupo" id="nombre-grupo">
+		<!-- englobamiento label abrir, input, label cerrar-->
+		<label for="album-grupo">
+			Album:
+			<input type="text" name="album-grupo" id="album-grupo">
+		</label>
+
+		<h2>Contraseña</h2>
+		<label for="contraseña-grupo">
+			Contraseña:
+			<input type="password" name="contraseña-grupo" id="contraseña-grupo">
+		</label>
+
+		<h2>Email</h2>
+		<label for="email-grupo">
+			Email:
+			<input type="email" name="email-grupo" id="email-grupo">
+		</label>
+
+		<h2>Web</h2>
+		<label for="web-grupo">
+			Web:
+			<input type="url" name="web-grupo" id="web-grupo">
+		</label>
+
+		<h2>Fecha</h2>
+		<label for="fecha-grupo">
+			Fecha:
+			<input type="date" name="fecha-grupo" id="fecha-grupo">
+		</label>
+
+		<h2>Hora</h2>
+		<label for="hora-grupo">
+			Hora:
+			<input type="time" name="hora-grupo" id="hora-grupo">
+		</label>
+
+		<h2>Número</h2>
+		<label for="numero-grupo">
+			Número:
+			<input type="number" name="numero-grupo" id="numero-grupo" min="0" max="10" step="1" value="5">
+		</label>
+
+		<h2>Archivo</h2>
+		<label for="archivo-grupo">
+			Archivo:
+			<input type="file" name="archivo-grupo" id="archivo-grupo" accept=".jpg, .png, .gif, .pdf">
+		</label>
+
+		<h2>Comentarios</h2>
+		<label for="comentarios-grupo">
+			Comentarios:
+			<textarea name="comentarios-grupo" id="comentarios-grupo" rows="4" cols="50">texto area</textarea>
+		</label>
+
+		<h2>Buscar</h2>
+		<!-- placeholder es un texto que aparece en el campo hasta que el usuario escribe algo -->
+		<input type="search" name="buscar-grupo" id="buscar-grupo" placeholder="Buscar grupo">
+
+		<h2>Botón Envío</h2>
+		<input type="submit" value="lo que se quiera poner en el botón">
+
+		<h2>Checkbox</h2>
+		que música te gusta más, aquí no hay que poner label
+		<input type="checkbox" name="metal" id="metal" value="si" checked="checked">
+		<label for="metal">Metal</label>
+		<input type="checkbox" name="rock" id="rock" value="si" checked="checked">
+		<label for="rock">Rock</label>
+
+		<h2>Radio</h2>
+		¿Cómo te gusta la tortilla?:<br>
+		<input type="radio" name="tortilla" id="tortillaCon" value="con cebolla">
+		<label for="tortillaCon">Con Cebolla</label><br>
+		<!-- el name tiene que ser el mismo para que se comporten como un grupo e id diferente -->
+		<input type="radio" name="tortilla" id="tortillaSin" value="sin cebolla">
+		<label for="tortillaSin">Sin Cebolla</label>
+		<h2>Select - desplegable con las opciones</h2>
+		<p>
+			<label for="campoColor">Elige un color favorito:</label>
+			<select name="campoColor" id="campoColor">
+				<option>negro</option>
+				<option>rojo</option>
+				<option>blanco</option>
+				<option>verde</option>
+				<option>azul</option>
+			</select>
+		</p>
+		<h2>Select valor alternativo</h2>
+		<p>
+			<label for="campoProvincia">Elige tu provincia:</label>
+			<select name="campoProvincia" id="campoProvincia">
+				<option value="01">Araba/Álava</option>
+				<option value="48">Bizkaia</option>
+				<option value="20">Gipuzkoa</option>
+			</select>
+		</p>
+		<h2>Selección categorizada</h2>
+		<label for="campoProducto">Seleccione un producto:</label>
+		<select name="campoProducto" id="campoProducto">
+			<optgroup label="software">
+				<option value="1">Ubuntu</option>
+				<option value="2">Gimp</option>
+				<option value="3">Open Office</option>
+			</optgroup>
+			<optgroup label="hardware">
+				<option value="4">Grabador DVD</option>
+				<option value="5">Tarjeta Gráfica</option>
+			</optgroup>
+			<optgroup label="material">
+				<option value="7">Torre 10 CDs</option>
+				<option value="8">Alfombrilla</option>
+				<option value="9">WebCam</option>
+			</optgroup>
+		</select>
+		<h2>Valor vacío inicial</h2>
+		<label for="campoProvincia">Elige tu provincia:</label>
+		<select name="campoProvincia" id="campoProvincia">
+			<option value="" disabled hidden selected></option>
+			<option value="01">Araba/Álava</option>
+			<option value="48">Bizkaia</option>
+			<option value="20">Gipuzkoa</option>
+		</select>
+		<h2>Multiple</h2>
+		<label for="campoColores">Elige tus colores favoritos:</label>
+		<select name="campoColores" id="campoColores" multiple>
+			<option value="negro">Negro</option>
+			<option value="rojo">Rojo</option>
+			<option value="blanco">Blanco</option>
+			<option value="verde">Verde</option>
+			<option value="azul">Azul</option>
+		</select>
+
+<h2>Valor inicial</h2>
+		<label for="campoColores">Elige:</label>
+		<select name="campoColores" id="campoColores">
+			<option value="negro" selected>Negro</option>
+			<option value="rojo">Rojo</option>
+			<option value="blanco">Blanco</option>
+			<option value="verde">Verde</option>
+			<option value="azul">Azul</option>
+		</select>
 
 
-
-
+	</form>
 
 </body>
+
 </html>
