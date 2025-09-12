@@ -29,7 +29,7 @@ Y también podemos controlar el tipo de archivo permitidos, mediante el atributo
 	<input type="file" name="campoCV" id="campoCV" accept="image/gif">
 </p>
 
-Incluso podemos hablitar la opción de selección múltiple de archivos:
+Incluso podemos habilitar la opción de selección múltiple de archivos:
 
 
 <p>
